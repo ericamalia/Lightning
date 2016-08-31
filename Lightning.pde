@@ -1,34 +1,71 @@
 void setup()
 {
   size(300,300);
-  background(48, 64, 81);
   strokeWeight (3);
   
 }
 int startX = 150;
 int startY = 0;
-int endX = 150;
-int endY = 20;
+int endX = 0;
+int endY = 0;
 
 void draw(){
 
-	stroke(0);
+	stroke(((int)(Math.random()*255)), ((int)(Math.random()*255)), ((int)(Math.random()*255)));
+	background(0);
 
-	while (endX < 300) {
+	while (endY < 200) {
+	
+		endX = startX + ((int)(Math.random()*18)-9);
+		endY = startY + (int)(Math.random()*9);
 		line(startX,startY,endX,endY);
-		startX = endX + ((int)(Math.random()*9));
-		startY = endY + (int)(Math.random()*9);
+		startX = endX;
+		startY = endY;
 
 	}
+	drkcity();
+
+	frameRate(10);
+}
+
+void drkcity() {
+	noStroke();
+	fill(46, 56, 68);
+	rect(0,150,50,200);
+	fill(47, 51, 56);
+	rect(50,200,70,100);
+	fill(37, 36, 43);
+	rect(120,180,70,200);
+	fill(31, 38, 45);
+	rect(190,140,40,300);
+	fill(27, 36, 46); 
+	rect(230,230,70,100);
+	triangle(230,230,265,200,300,230);
+
+}
+void lightcity(){
+	noStroke();
+	fill(109, 118, 127);
+	rect(0,150,50,200);
+	fill(140, 144, 105);
+	rect(50,200,70,100);
+	fill(39, 60, 34);
+	rect(120,180,70,200);
+	fill(82, 77, 58  );
+	rect(190,140,40,300);
+	fill(79, 30, 17); 
+	rect(230,230,70,100);
+	triangle(230,230,265,200,300,230);
 
 }
 
 void mousePressed()
 {
-	//redraw();
-	startX = 150;
+	redraw();
+	lightcity();
+	startX = ((int)(Math.random()*300));
     startY = 0;
-    endX = 0;
-    endY = 300;
+    endX = ((int)(Math.random()*300));
+    endY = 100;
 }
 
